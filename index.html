@@ -1,9 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ammu ✨</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
@@ -13,6 +15,24 @@ body {
   background: #0b0b0f;
   color: white;
   overflow-x: hidden;
+}
+
+/* 💙 blue animated glow */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(0,140,255,0.15), transparent 70%);
+  animation: blueMove 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes blueMove {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .container {
@@ -26,7 +46,7 @@ body {
   font-size: 2.6em;
   text-align: center;
   margin-top: 50px;
-  background: linear-gradient(90deg, gold, #fff, gold);
+  background: linear-gradient(90deg, #00c6ff, #ffffff, #0072ff);
   background-size: 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -54,7 +74,7 @@ body {
 }
 
 .card h2 {
-  color: gold;
+  color: #00c6ff;
   font-size: 1.1em;
 }
 
@@ -71,13 +91,13 @@ body {
   height: 210px;
   object-fit: cover;
   border-radius: 12px;
-  border: 1px solid gold;
+  border: 1px solid #00c6ff;
 }
 
 .countdown {
   text-align: center;
   font-size: 1.2em;
-  color: gold;
+  color: #00c6ff;
 }
 
 .input {
@@ -93,8 +113,8 @@ body {
   margin-top: 10px;
   border-radius: 25px;
   border: none;
-  background: linear-gradient(90deg, gold, #ffcc70);
-  color: black;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
   font-weight: bold;
 }
 
@@ -105,8 +125,9 @@ body {
 .float {
   position: fixed;
   bottom: -50px;
-  font-size: 20px;
+  font-size: 22px;
   animation: floatUp linear infinite;
+  text-shadow: 0 0 10px rgba(0,140,255,0.7);
 }
 
 @keyframes floatUp {
@@ -138,6 +159,7 @@ footer {
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -164,7 +186,7 @@ footer {
 </div>
 
 <div class="card">
-  <h2>📸 Ammu ka pics (itttu sa hi milaa)</h2>
+  <h2>📸 Ammu ka pics</h2>
   <div class="gallery">
     <img src="photo1.JPG">
     <img src="photo2.jpg">
@@ -177,23 +199,11 @@ footer {
   <input type="password" id="password" class="input" placeholder="Enter password">
   <button class="button" onclick="checkPassword()">Unlock</button>
   <div id="error" class="error"></div>
+
   <div id="surprise" class="hidden message">
-    My dearest Ammu ❤️
-
-On your special day, I just want to remind you how truly important you are to me.
-You’re not just someone in my life… you are the reason behind so many of my smiles.
-
-Every moment with you feels different — calmer, happier, and more meaningful.
-You have this beautiful way of making everything better just by being there.
-
-I don’t say this enough, but I’m really lucky to have you.
-And today, I just want you to feel how special you truly are.
-
-Happy Birthday, Ammu 🎂✨
-I hope your day is filled with love, happiness, and everything you deserve.
-
-And remember…
-You mean more to me than words can ever explain ❤️
+    My dearest Ammu ❤️<br><br>
+    Happy Birthday 🎂✨<br><br>
+    You mean more to me than words can ever explain 🤍
   </div>
 </div>
 
@@ -214,6 +224,7 @@ setInterval(()=>{
   document.getElementById("countdown").innerHTML = `${d}d ${h}h ${m}m ${s}s`;
 },1000);
 
+// password
 function checkPassword(){
   const val = document.getElementById("password").value;
   if(val.toLowerCase()==="preetham"){
@@ -231,8 +242,9 @@ function cutCake(){
   document.getElementById("cakeMsg").style.display="block";
 }
 
-// floating items
-const items = ["🎈","❤️","💖","🧸","🎉"];
+// 💙 floating emojis with sunflower + white heart
+const items = ["🎈","💙","🤍","🌻","💖","🧸","🎉"];
+
 function createFloat(){
   const el = document.createElement("div");
   el.className="float";
@@ -242,9 +254,10 @@ function createFloat(){
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),7000);
 }
+
 setInterval(createFloat,300);
 </script>
 
 </body>
 </html>
-<!-- update -->
+```
